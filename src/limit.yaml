@@ -1,0 +1,6 @@
+floor:
+  bottom: 1 # 最低楼层限制
+  top: 5 # 最高楼层限制
+
+consumptionTime: # 前进一个楼层 所消耗的时间
+  expend: 1 # 单位: 秒
