@@ -35,6 +35,7 @@ func move(floor []int, up bool, current int) {
 			// 如果到顶了, 则将电梯设置为下降
 			if new_index > len(floor)-1 {
 				global.Elevator.Up = false
+				new_index = 0
 			}
 			// 设置电梯属性
 			setState(f, floor[new_index])
@@ -42,6 +43,11 @@ func move(floor []int, up bool, current int) {
 			f := floor[new_index]
 			zap.S().Infof("当前已下降到楼层%d,请稍等.\n", f)
 			new_index--
+			// 如果到顶了, 则将电梯设置为下降
+			if new_index < 0 {
+				global.Elevator.Up = true
+				new_index = 0
+			}
 			// 设置电梯属性
 			setState(f, floor[new_index])
 		}
